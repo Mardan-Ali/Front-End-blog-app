@@ -1,7 +1,9 @@
 import React from "react";
 import "./topbar.css";
 import image from "../assets/mardan.jpeg";
+import { Link } from "react-router-dom";
 export default function Topbar() {
+  const user = false;
   return (
     <div className="top">
       <div className="top-left">
@@ -12,15 +14,47 @@ export default function Topbar() {
       </div>
       <div className="top-center">
         <ul className="top-list">
-          <li className="top-list-item">Home</li>
-          <li className="top-list-item">About</li>
-          <li className="top-list-item">Contact</li>
-          <li className="top-list-item">Write</li>
-          <li className="top-list-item">Logout</li>
+          <li className="top-list-item">
+            <Link to="/" className="link">
+              Home
+            </Link>
+          </li>
+          <li className="top-list-item">
+            <Link to="/" className="link">
+              About
+            </Link>
+          </li>
+          <li className="top-list-item">
+            <Link to="/" className="link">
+              Contact
+            </Link>
+          </li>
+          <li className="top-list-item">
+            <Link to="/write" className="link">
+              Write
+            </Link>
+          </li>
+          <li className="top-list-item">{user && "Logout"}</li>
         </ul>
       </div>
       <div className="top-right">
-        <img className="top-imag" src={image} alt="" />
+        {user ? (
+          <img className="top-imag" src={image} alt="" />
+        ) : (
+          <ul className="top-list">
+            <li className="top-list-item">
+              <Link to="/login" className="link">
+                Login
+              </Link>
+            </li>
+            <li className="top-list-item">
+              <Link to="/register" className="link">
+                Register
+              </Link>
+            </li>
+          </ul>
+        )}
+
         <i class="top-search-icon fa-solid fa-magnifying-glass"></i>
       </div>
     </div>

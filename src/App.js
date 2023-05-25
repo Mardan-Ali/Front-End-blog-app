@@ -8,6 +8,7 @@ import Single from "./pages/Single";
 import Write from "./pages/Write";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
+  const user = false;
   return (
     <div>
       <BrowserRouter>
